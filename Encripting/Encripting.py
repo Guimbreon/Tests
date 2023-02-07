@@ -1,42 +1,43 @@
 import random
 import string
-k=random.randint(1,5)
-separator=''.join(random.choices(string.ascii_lowercase + string.ascii_uppercase, k=k))
-print(separator)
 
-test="QWERTTATQW"
+#quote
 
-#test=test.replace("A",separator)
+quote="A tua nota é ~15"
 
-print(test)
 #COUNT THE AMOUNT OF DIFFERENT LETTERS
+
 diff=""
-for thing in test:
+for thing in quote:
     if thing not in diff:
         diff+=thing
 amount=len(diff)
-#SEPARATE ALL THE LETTERS
+
+#See all the diferent letters
+
 letter_sub={}
 for letter in diff:
     new=''.join(random.choices(string.ascii_lowercase + string.ascii_uppercase, k=5))
     letter_sub[letter]=new
-print(letter_sub)
-new_test=""
-for letter in test:
-    new_test+=letter_sub[letter]
-    print(letter)
-
-print(new_test)
-"""
-
-new=""
-all=["TQ","QWERt","WW","Q"]
 
 
-for letter in diff:
-    sub=str(random.choices(all))
-    test=test.replace(letter,sub)
-    print(letter)
-print(test)
-#UNITE EVERYTHING!
-"""
+#Change the letters
+
+new_quote=""
+for letter in quote:
+    new_quote+=letter_sub[letter]
+
+#Creating the encripted text:
+encripted=""
+encripted+=new_quote
+
+#add the items to the key.txt
+
+#with open(input("What file do u want to put the doc_keys?\n>>"), "w") as file:
+with open("/home/guimbreon/Desktop/Git_organazier/Tests/Encripting/key.txt", "w") as file:
+    
+    for letter in letter_sub:
+        file.write(f">{letter}\n{letter_sub[letter]}\n")
+
+
+print(f"\n{encripted}\n")
