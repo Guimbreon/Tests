@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt">
+    <head>
+        <title>MAGIC</title>
+    </head>
+
+</html>
+<body style="background-color: black">
+    <h1 style="background-color: maroon;">This is my MTG Portfolio!</h1>
+
+    <input type="text" id="mySearch" onkeyup="myFunction()" placeholder="Search.." title="Type in a category">
+
+    
+         <ul id="myMenu">
+           <li>
+                <a href="card_pages/Unholy_Heat/Unholy_Heat.html">
+                    <img src="card_pages/Unholy_Heat/mh2-145-unholy-heat.jpg" alt="Unholy Heat" style="width: 200px;height:250px;">
+                </a>
+            </li>
+    <script>
+        function myFunction() {
+          // Declare variables
+          var input, filter, ul, li, a, i;
+          input = document.getElementById("mySearch");
+          filter = input.value.toUpperCase();
+          ul = document.getElementById("myMenu");
+          li = ul.getElementsByTagName("li");
+        
+          // Loop through all list items, and hide those who don't match the search query
+          for (i = 0; i < li.length; i++) {
+            a = li[i].getElementsByTagName("a")[0];
+            if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+              li[i].style.display = "";
+            } else {
+              li[i].style.display = "none";
+            }
+          }
+        }
+        </script>
+
+</body>
